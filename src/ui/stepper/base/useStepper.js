@@ -1,8 +1,15 @@
-import React from 'react' ;
+import React, { useRef } from 'react' ;
 
 export const useStepper = ({steps,currentStep}) => {
     const [_currentStep, setCurrentStep] = React.useState(currentStep ?? 0);
-    
+    const previousStepExist = useRef(false);
+    const nextStepExist = useRef(false);
+    const totalSteps = React.useRef(steps?.length);
+
+    previousStepExist.current = _currentStep > 0;
+    nextStepExist.current = _currentStep < steps.length - 1;
+
+
     const getNextStep = React.useCallback((currentStep)=>{
         return currentStep + 1;
     },[steps])
@@ -25,9 +32,33 @@ export const useStepper = ({steps,currentStep}) => {
         setCurrentStep(prevStep)
     })
 
+    const handleStepClick = (step,index) => {
+        console.log("step clicked",step,index);
+        setCurrentStep(index);
+    }
+
+    const stepsProps = React.useMemo(()=>{
+        return steps?.map((step,index)=>{
+            return {
+                onClick : () => handleStepClick(step,index)
+            }
+        })
+    },[_currentStep,steps])
+
+    const currentState = React.useMemo(()=>{
+        return{
+        currentStep : _currentStep,
+        previousStepExist : previousStepExist.current,
+        nextStepExist : nextStepExist.current,
+        totalSteps : totalSteps.current
+        }
+    },[_currentStep])
+
     return {
         nextStep,
         prevStep,
-        currentStep : _currentStep
+        stepsProps,
+        currentStep : _currentStep,
+        stepperState : currentState
     }
 }
