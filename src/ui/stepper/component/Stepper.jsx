@@ -43,7 +43,7 @@ export const Stepper = React.forwardRef(({currentStep = 0, orientation = 'horizo
     const StepContent =allSteps[stepperInstance?.stepperState?.currentStep]?.props?.children
     return(
         <StepperContext.Provider value={stepperInstance} >
-            <Element >
+            <Element style={{display:'flex',gap:'30px' }} >
                 {Steps}
             </Element>
             <div>

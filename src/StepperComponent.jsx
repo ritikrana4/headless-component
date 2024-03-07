@@ -22,13 +22,15 @@ const StepperComponent = ({}) => {
 
   return (
     <>
-      <Stepper currentStep={activeStep} onStepClick={setActiveStep}  >
-        <Step  label="Step 0"> Step 0 content</Step>
-        <Step label="Step 1"> Step 1 content</Step>
-        <Step label="Step 2">Step 2 content</Step>
+      <Stepper currentStep={activeStep} onStepClick={setActiveStep}   >
+        <Step  label="Step 0"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 0 content</div></Step>
+        <Step label="Step 1"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 1 content</div></Step>
+        <Step label="Step 2"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 2 content</div></Step>
       </Stepper>
-    <button onClick={nextStep}>Next</button>
-    <button onClick={prevStep}>Prev</button>
+      <div style={{display:'flex',justifyContent:"space-between"}}>
+        <button onClick={prevStep}>Prev</button>
+        <button onClick={nextStep}>Next</button>
+      </div>
     </>
   );
 };

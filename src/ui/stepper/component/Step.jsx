@@ -9,7 +9,7 @@ console.log(active,label,"active")
             color:"white",
             pointerEvents : disabled ? 'none' : 'auto',
             opacity : disabled ? 0.5 : 1,
-            backgroundColor : active ? 'blue' : "grey",
+            backgroundColor : active ? '#1976d2' : "grey",
             ...style
         }}
         {...rest}
