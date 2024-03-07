@@ -1,11 +1,14 @@
 import './App.css'
-import Stepper from './ui/stepper/component'
+import StepperComponent from './StepperComponent'
+import Stepper from './customstepper'
 
 function App() {
 
   return (
     <>
-      <Stepper/>
+      {/* <Stepper/> */}
+
+      <StepperComponent/>
     </>
   )
 }

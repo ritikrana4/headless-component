@@ -1,10 +1,15 @@
 import React, { useRef } from 'react' ;
 
-export const useStepper = ({steps,currentStep}) => {
+export const useStepper = ({steps, currentStep, orientation="horizontal"}) => {
     const [_currentStep, setCurrentStep] = React.useState(currentStep ?? 0);
     const previousStepExist = useRef(false);
     const nextStepExist = useRef(false);
     const totalSteps = React.useRef(steps?.length);
+
+
+    React.useEffect(()=>{
+        setCurrentStep(currentStep)
+    },[currentStep])
 
     previousStepExist.current = _currentStep > 0;
     nextStepExist.current = _currentStep < steps.length - 1;
