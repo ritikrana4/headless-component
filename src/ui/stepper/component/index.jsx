@@ -1,2 +1,7 @@
-export * from './Stepper.jsx';
-export * from './Step.jsx';
+
+import {Stepper} from './Stepper';
+import {Step} from './Step';
+
+Stepper.Step = Step;
+
+export default Stepper;

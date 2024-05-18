@@ -1,7 +1,6 @@
 
 export const Step = ({ label, subLabel, disabled, active, style, as = "button", ...rest }, ref) => {
     const Element = as;
-    console.log(active, label, subLabel, "active")
     return (
         <div>
             <Element
@@ -16,8 +15,6 @@ export const Step = ({ label, subLabel, disabled, active, style, as = "button", 
                 {...rest}
             >
                 {label}
-
-
             </Element>
             <div>
                 {subLabel}
