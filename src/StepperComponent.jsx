@@ -1,6 +1,6 @@
 
-import {Stepper} from "./ui/stepper/component/Stepper";
-import {Step} from "./ui/stepper/component/Step";
+// import {Stepper} from "./ui/stepper/component/Stepper";
+import {Step,Stepper} from "./ui/stepper/component";
 import { useState } from "react";
 
 
@@ -22,10 +22,10 @@ const StepperComponent = ({}) => {
 
   return (
     <>
-      <Stepper currentStep={activeStep} onStepClick={setActiveStep}   >
-        <Step  label="Step 0"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 0 content</div></Step>
-        <Step label="Step 1"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 1 content</div></Step>
-        <Step label="Step 2"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 2 content</div></Step>
+      <Stepper currentStep={activeStep} onStepClick={setActiveStep}  >
+        <Step  label="0" subLabel="Step 1"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 0 content</div></Step>
+        <Step label="1"  subLabel="Step 2"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 1 content</div></Step>
+        <Step label="2"  subLabel="Step 3"><div style={{height:"100px",justifyContent:"center",alignItems:"center",display:"flex"}}>Step 2 content</div></Step>
       </Stepper>
       <div style={{display:'flex',justifyContent:"space-between"}}>
         <button onClick={prevStep}>Prev</button>

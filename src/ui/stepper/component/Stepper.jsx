@@ -34,6 +34,11 @@ export const Stepper = React.forwardRef(({currentStep = 0, orientation = 'horizo
         const isDisabled = step.props.disabled;
         const isActive = index == currentStep
         // acc.push(React.cloneElement(step,{disabled : isDisabled, active:isActive, ...stepperInstance?.stepsProps[index]}))
+        if(index > 0 && allSteps?.length>1){
+            acc.push(React.cloneElement(<div style={{position:'relative',top:"20px"}}>
+                <span style={{minWidth:"100px",display: "block",border: "1px solid #bdbdbd"}}></span>
+            </div>))
+        }
         acc.push(React.cloneElement(step,{disabled: isDisabled , active: isActive, onClick : ()=>onStepClick(index)}))
 
         return acc;
@@ -43,7 +48,7 @@ export const Stepper = React.forwardRef(({currentStep = 0, orientation = 'horizo
     const StepContent =allSteps[stepperInstance?.stepperState?.currentStep]?.props?.children
     return(
         <StepperContext.Provider value={stepperInstance} >
-            <Element style={{display:'flex',gap:'30px' }} >
+            <Element style={{display:'flex',gap:'0px',justifyContent:"center" }} >
                 {Steps}
             </Element>
             <div>
